@@ -1,15 +1,28 @@
 declare module "@kansato/whistle-react" {
   import { ComponentType, ReactNode } from "react";
 
+  export interface SubjectDisplay {
+    name?: string | null;
+    username?: string | null;
+    avatarUrl?: string | null;
+  }
+
   export interface IngestSubject {
-    type: "user" | "post" | "comment";
-    id: string;
-    name?: string;
+    type: string;
+    externalId: string;
+    display?: SubjectDisplay;
+    metadata?: Record<string, unknown>;
   }
 
   export interface ReportTarget {
-    type: "post" | "comment" | "user" | "profile";
-    id: string;
+    contentExternalId: string;
+    contentType: string;
+  }
+
+  export interface ReportFormContext {
+    subject: IngestSubject;
+    target: ReportTarget;
+    reporter?: IngestSubject;
   }
 
   export interface ReportModalOptions {
@@ -40,11 +53,16 @@ declare module "@kansato/whistle-react" {
 
   export function WhistleProvider(props: WhistleProviderProps): ReactNode;
 
+  export type DialogSurface = "default" | "embed";
+
   export interface ReportButtonProps {
-    subject: IngestSubject;
-    target: ReportTarget;
-    reporter?: IngestSubject;
-    children: (props: { onClick: () => void }) => ReactNode;
+    context: ReportFormContext;
+    variant?: "dialog" | "inline";
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    trigger?: ReactNode;
+    className?: string;
+    dialogSurface?: DialogSurface;
   }
 
   export const ReportButton: ComponentType<ReportButtonProps>;

@@ -7,10 +7,10 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     config.resolve.symlinks = false;
     config.resolve.alias["@kansato/whistle-react"] = path.resolve(
-      "../whistle/sdk/react-sdk/src/index.ts"
+      "../../whistle/sdk/react-sdk/src/index.ts",
     );
     config.resolve.alias["@kansato/whistle-sdk"] = path.resolve(
-      "../whistle/sdk/node-sdk/dist/index.js"
+      "../../whistle/sdk/node-sdk/dist/index.js",
     );
     return config;
   },

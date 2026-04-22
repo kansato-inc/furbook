@@ -262,25 +262,27 @@ export function PostCard({ post, isAuthenticated }: { post: Post; isAuthenticate
             {post.timeAgo}
           </span>
           <ReportButton
-            subject={{
-              type: "user",
-              id: post.authorId,
-              name: post.author,
+            dialogSurface="embed"
+            context={{
+              subject: {
+                type: "user",
+                externalId: post.authorId,
+                display: { name: post.author },
+              },
+              target: {
+                contentType: "post",
+                contentExternalId: post.id,
+              },
             }}
-            target={{
-              type: "post",
-              id: post.id,
-            }}
-          >
-            {(props: { onClick: () => void }) => (
+            trigger={
               <button
-                {...props}
+                type="button"
                 className="text-[11px] uppercase text-muted-foreground tracking-wide hover:text-destructive transition-colors"
               >
                 Report
               </button>
-            )}
-          </ReportButton>
+            }
+          />
         </div>
       </div>
 
