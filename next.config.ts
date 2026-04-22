@@ -1,12 +1,19 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
-	/* config options here */
+  serverExternalPackages: ["better-auth"],
+  transpilePackages: ["@kansato/whistle-react", "@kansato/whistle-sdk"],
+  webpack: (config) => {
+    config.resolve.symlinks = false;
+    config.resolve.alias["@kansato/whistle-react"] = path.resolve(
+      "../whistle/sdk/react-sdk/src/index.ts"
+    );
+    config.resolve.alias["@kansato/whistle-sdk"] = path.resolve(
+      "../whistle/sdk/node-sdk/dist/index.js"
+    );
+    return config;
+  },
 };
 
 export default nextConfig;
-
-// Enable calling `getCloudflareContext()` in `next dev`.
-// See https://opennext.js.org/cloudflare/bindings#local-access-to-bindings.
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
-initOpenNextCloudflareForDev();
