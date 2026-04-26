@@ -1,7 +1,6 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import { StoryBar } from "@/components/feed/story-bar";
 import { FeedPosts } from "@/components/feed/post-card";
 
 export default function FeedPage() {
@@ -17,7 +16,6 @@ export default function FeedPage() {
 
   return (
     <div className="animate-fade-in">
-      <StoryBar />
       <FeedPosts isAuthenticated={!!session} />
     </div>
   );

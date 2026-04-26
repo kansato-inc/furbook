@@ -12,6 +12,7 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo } from "react";
+import { cn } from "@/lib/utils";
 
 const profileData: Record<string, {
   name: string;
@@ -64,8 +65,11 @@ function ProfileGrid({ color }: { color: string }) {
         <motion.div
           key={i}
           whileHover={{ opacity: 0.85 }}
-          className="aspect-square relative cursor-pointer"
-          style={{ backgroundColor: i % 2 === 0 ? color : "#eee" }}
+          className={cn(
+            "aspect-square relative cursor-pointer",
+            i % 2 !== 0 && "bg-muted"
+          )}
+          style={i % 2 === 0 ? { backgroundColor: color } : undefined}
         >
           <div className="absolute inset-0 flex items-center justify-center text-2xl select-none">
             {emojis[i % emojis.length]}

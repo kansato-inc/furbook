@@ -41,7 +41,7 @@ function StoryAvatar({ story }: { story: Story }) {
           story.seen ? "bg-border" : "bg-gradient-to-br from-accent via-purple-500 to-pink-500"
         )}
       >
-        <div className="w-full h-full rounded-full bg-white p-[2px]">
+        <div className="w-full h-full rounded-full bg-background p-[2px]">
           <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-xs font-semibold text-muted-foreground">
             {initials}
           </div>

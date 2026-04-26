@@ -56,7 +56,7 @@ export default function SignUpPage() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-white focus:border-foreground/30 transition-colors"
+          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-card text-foreground focus:border-foreground/30 transition-colors"
           autoComplete="name"
         />
         <input
@@ -67,7 +67,7 @@ export default function SignUpPage() {
           required
           pattern="[a-zA-Z0-9_]+"
           title="Letters, numbers, underscores only"
-          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-white focus:border-foreground/30 transition-colors"
+          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-card text-foreground focus:border-foreground/30 transition-colors"
           autoComplete="username"
         />
         <input
@@ -76,7 +76,7 @@ export default function SignUpPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-white focus:border-foreground/30 transition-colors"
+          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-card text-foreground focus:border-foreground/30 transition-colors"
           autoComplete="email"
         />
         <input
@@ -86,7 +86,7 @@ export default function SignUpPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
           minLength={8}
-          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-white focus:border-foreground/30 transition-colors"
+          className="w-full px-3 py-2.5 text-sm border border-border rounded-sm bg-card text-foreground focus:border-foreground/30 transition-colors"
           autoComplete="new-password"
         />
 

@@ -38,6 +38,7 @@ declare module "@kansato/whistle-react" {
     timeout?: number;
     fetch?: typeof fetch;
     branding?: boolean;
+    embedAppearance?: "light" | "dark" | "system";
   }
 
   export interface WhistleProviderProps {
@@ -47,6 +48,7 @@ declare module "@kansato/whistle-react" {
     timeout?: number;
     fetch?: typeof fetch;
     branding?: boolean;
+    embedAppearance?: "light" | "dark" | "system";
     config?: WhistleConfig;
     children: ReactNode;
   }

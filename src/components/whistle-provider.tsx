@@ -1,6 +1,7 @@
 "use client";
 
 import { WhistleProvider } from "@kansato/whistle-react";
+import { useTheme } from "next-themes";
 
 const PUBLISHABLE_KEY_PREFIX = "whpk_" as const;
 
@@ -25,6 +26,13 @@ export function FurbookWhistleProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const { resolvedTheme } = useTheme();
+  const embedAppearance =
+    resolvedTheme === "dark"
+      ? "dark"
+      : resolvedTheme === "light"
+        ? "light"
+        : "system";
   const apiKey = process.env.NEXT_PUBLIC_WHISTLE_PUBLISHABLE_KEY ?? "";
   const projectId = process.env.NEXT_PUBLIC_WHISTLE_PROJECT_ID ?? "";
   const baseUrl =
@@ -49,6 +57,7 @@ export function FurbookWhistleProvider({
       projectId={resolvedProjectId}
       baseUrl={baseUrl}
       branding={true}
+      embedAppearance={embedAppearance}
     >
       {envIncomplete ? (
         <div className="mx-auto max-w-2xl px-3 pt-3">

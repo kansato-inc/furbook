@@ -55,7 +55,7 @@ export default function ExplorePage() {
   return (
     <div className="animate-fade-in">
       {/* Search bar */}
-      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm px-4 py-3 border-b border-border/30">
+      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm px-4 py-3 border-b border-border/30">
         <div className="relative max-w-md mx-auto">
           <Search
             size={16}

@@ -3,16 +3,48 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Source tokens: Tailwind v4 bakes @theme hex into utilities (e.g. .bg-background { #fff }).
+ * Aliasing through var(--fb-*) keeps colors runtime-switchable for html.dark / next-themes.
+ */
+:root {
+  --fb-bg: #ffffff;
+  --fb-fg: #0a0a0a;
+  --fb-muted: #f5f5f5;
+  --fb-muted-fg: #8e8e8e;
+  --fb-border: #dbdbdb;
+  --fb-accent: #0095f6;
+  --fb-accent-h: #1877f2;
+  --fb-card: #ffffff;
+  --fb-destructive: #ed4956;
+  --fb-ring: #a5a5a5;
+}
+
+html.dark {
+  color-scheme: dark;
+  --fb-bg: #000000;
+  --fb-fg: #f5f5f5;
+  --fb-muted: #0a0a0a;
+  --fb-muted-fg: #a3a3a3;
+  --fb-border: #262626;
+  --fb-accent: #4ea8ff;
+  --fb-accent-h: #7ec1ff;
+  --fb-card: #000000;
+  --fb-destructive: #ff6b6b;
+  --fb-ring: #525252;
+}
+
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
-  --color-muted: #f5f5f5;
-  --color-muted-foreground: #8e8e8e;
-  --color-border: #dbdbdb;
-  --color-accent: #0095f6;
-  --color-accent-hover: #1877f2;
-  --color-card: #ffffff;
-  --color-destructive: #ed4956;
+  --color-background: var(--fb-bg);
+  --color-foreground: var(--fb-fg);
+  --color-muted: var(--fb-muted);
+  --color-muted-foreground: var(--fb-muted-fg);
+  --color-border: var(--fb-border);
+  --color-accent: var(--fb-accent);
+  --color-accent-hover: var(--fb-accent-h);
+  --color-card: var(--fb-card);
+  --color-destructive: var(--fb-destructive);
+  --color-ring: var(--fb-ring);
 
   --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
   --font-serif: var(--font-serif), Georgia, serif;
@@ -27,6 +59,10 @@
   --animate-heart-burst: heart-burst 0.4s ease-out;
   --animate-fade-in: fade-in 0.2s ease-out;
   --animate-slide-up: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  color-scheme: light;
 }
 
 @keyframes heart-burst {
@@ -47,7 +83,7 @@
 }
 
 * {
-  border-color: var(--color-border);
+  border-color: var(--fb-border);
 }
 
 button {
@@ -55,16 +91,16 @@ button {
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--fb-bg);
+  color: var(--fb-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: white;
+  background: var(--fb-accent);
+  color: #ffffff;
 }
 
 input:focus {

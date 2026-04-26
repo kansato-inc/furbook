@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Home, Compass, LogIn, LogOut } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { href: "/feed", icon: Home, label: "Home" },
@@ -23,10 +24,13 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="hidden lg:flex fixed left-0 top-0 h-full w-[244px] flex-col border-r border-border/50 bg-white px-4 py-8 z-40">
-      <Link href="/feed" className="px-3 mb-8">
-        <h1 className="font-serif text-2xl tracking-tight">furbook</h1>
-      </Link>
+    <aside className="hidden lg:flex fixed left-0 top-0 h-full w-[244px] flex-col border-r border-border/50 bg-card px-4 py-8 z-40">
+      <div className="mb-8 flex items-start justify-between gap-2 px-3">
+        <Link href="/feed" className="min-w-0">
+          <h1 className="font-serif text-2xl tracking-tight">furbook</h1>
+        </Link>
+        <ThemeToggle className="shrink-0" />
+      </div>
 
       <nav className="flex flex-col gap-1 flex-1">
         {navItems.map(({ href, icon: Icon, label }) => {
