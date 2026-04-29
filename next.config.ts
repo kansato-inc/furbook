@@ -14,11 +14,11 @@ const nextConfig: NextConfig = {
       ...config.resolve.alias,
       "@kansato/whistle-react": path.resolve(
         __dirname,
-        "../triage/react-sdk/src/index.ts",
+        "../react-sdk/src/index.ts",
       ),
       "@kansato/whistle-sdk": path.resolve(
         __dirname,
-        "../triage/node-sdk/dist/index.js",
+        "../node-sdk/dist/index.js",
       ),
     };
     return config;

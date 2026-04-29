@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "dev:sdk": "cd ../triage/react-sdk && bun run dev",
+    "dev:sdk": "cd ../react-sdk && bun run dev",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",

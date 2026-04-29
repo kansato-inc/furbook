@@ -65,7 +65,7 @@ export function FurbookWhistleProvider({
             <p className="font-medium">Whistle is not configured</p>
             <p className="mt-1 text-amber-800">
               Copy{" "}
-              <code className="rounded bg-amber-100/80 px-1">furbook/.env.example</code> to{" "}
+              <code className="rounded bg-amber-100/80 px-1">example-furbook/.env.example</code> to{" "}
               <code className="rounded bg-amber-100/80 px-1">.env.local</code> and set real{" "}
               <code className="rounded bg-amber-100/80 px-1">NEXT_PUBLIC_WHISTLE_PUBLISHABLE_KEY</code>{" "}
               (whpk_…) and{" "}
