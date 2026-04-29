@@ -13,10 +13,12 @@ const nextConfig: NextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@kansato/whistle-react": path.resolve(
-        "../../whistle/sdk/react-sdk/src/index.ts",
+        __dirname,
+        "../triage/react-sdk/src/index.ts",
       ),
       "@kansato/whistle-sdk": path.resolve(
-        "../../whistle/sdk/node-sdk/dist/index.js",
+        __dirname,
+        "../triage/node-sdk/dist/index.js",
       ),
     };
     return config;
