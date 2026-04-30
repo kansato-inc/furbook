@@ -2,14 +2,13 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
-  /** better-auth: Next compiles ESM with correct React 19 / Webpack interop (avoids `null.useRef` from `useSession`). */
   transpilePackages: [
-    "better-auth",
     "@kansato/whistle-react",
     "@kansato/whistle-sdk",
   ],
+  allowedDevOrigins: ["furbook.kansato.localhost"],
   webpack: (config) => {
-    config.resolve.symlinks = false;
+    config.resolve.symlinks = true;
     config.resolve.alias = {
       ...config.resolve.alias,
       "@kansato/whistle-react": path.resolve(
