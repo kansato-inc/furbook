@@ -1,9 +1,7 @@
-import { createWhistleHandler } from "@kansato/whistle-react";
+import { createWhistleHandler } from "@kansato/whistle-react/server";
+import { NextRequest } from "next/server";
 
-export const { POST } = createWhistleHandler({
-  apiKey: process.env.WHISTLE_API_KEY!,
-  projectId: process.env.WHISTLE_PROJECT_ID!,
-  apiUrl: process.env.WHISTLE_API_URL,
+const { POST: handlePost } = createWhistleHandler({
   getReporter: () => ({
     type: "user",
     externalId: "user-001",
@@ -13,3 +11,10 @@ export const { POST } = createWhistleHandler({
     },
   }),
 });
+
+export async function POST(
+  request: NextRequest,
+  _context: { params: Promise<{}> },
+): Promise<Response> {
+  return handlePost(request as unknown as Parameters<typeof handlePost>[0]);
+}

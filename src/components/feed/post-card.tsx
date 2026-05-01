@@ -87,6 +87,7 @@ export function PostCard({ post }: PostCardProps) {
             </button>
           }
           onSubmit={async (data, helpers) => {
+            console.log("Report submitted:", data);
             try {
               const result = await submit({
                 subject: data.subject,
@@ -96,7 +97,6 @@ export function PostCard({ post }: PostCardProps) {
               });
               helpers.resolve({
                 id: result.report.id,
-                projectId: result.report.projectId,
                 status: result.report.status,
                 createdAt: result.report.createdAt,
               });
