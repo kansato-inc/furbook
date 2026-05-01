@@ -15,7 +15,7 @@ export function WhistleProviderShell({
 
   return (
     <WhistleProvider
-      apiKey={apiKey || "whpk_not_configured"}
+      apiKey={apiKey || "pk_live_not_configured"}
       projectId={projectId || "00000000-0000-0000-0000-000000000000"}
       baseUrl={baseUrl}
       routeHandlerPath="/api/whistle/report"
