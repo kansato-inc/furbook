@@ -22,6 +22,7 @@ export function ReportUserButton({ user }: ReportUserButtonProps) {
       target={{
         contentType: "user",
         contentExternalId: user.externalId,
+
       }}
       trigger={
         <button
