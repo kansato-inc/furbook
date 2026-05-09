@@ -28,14 +28,14 @@ export function PostCard({ post }: PostCardProps) {
         className="flex items-center gap-3 px-4 py-3"
       >
         <span
-          className="w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0"
+          className="size-10 rounded-full flex items-center justify-center text-xl shrink-0"
           style={{ backgroundColor: author.avatarBg }}
         >
           {author.avatarEmoji}
         </span>
         <div>
           <span className="font-semibold text-sm">{author.displayName}</span>
-          <span className="text-gray-500 text-xs ml-2">
+          <span className="text-zinc-500 text-xs ml-2">
             @{author.username}
           </span>
         </div>
@@ -61,7 +61,7 @@ export function PostCard({ post }: PostCardProps) {
           </Link>{" "}
           {post.caption}
         </p>
-        <p className="text-gray-400 text-xs mt-2 uppercase tracking-wide">
+        <p className="text-zinc-400 text-xs mt-2 uppercase tracking-wide">
           {post.createdAt}
         </p>
 
@@ -81,7 +81,7 @@ export function PostCard({ post }: PostCardProps) {
           trigger={
             <button
               type="button"
-              className="text-xs text-gray-400 hover:text-red-500 mt-1 uppercase tracking-wide transition-colors cursor-pointer"
+              className="text-xs text-zinc-400 hover:text-red-500 mt-1 uppercase tracking-wide transition-colors cursor-pointer"
             >
               Report post
             </button>

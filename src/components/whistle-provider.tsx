@@ -24,7 +24,7 @@ export function WhistleProviderShell({
     >
       {!configured && (
         <div className="bg-yellow-50 border-b border-yellow-200 px-4 py-2 text-center text-sm text-yellow-800">
-          Whistle not configured — copy{" "}
+          Whistle not configured: copy{" "}
           <code className="bg-yellow-100 px-1 rounded">.env.example</code> to{" "}
           <code className="bg-yellow-100 px-1 rounded">.env.local</code> and add
           your credentials
